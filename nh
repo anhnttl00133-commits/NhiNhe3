@@ -44,10 +44,37 @@ button {
     cursor: pointer;
 }
 
-/* Heart icon */
+/* ===== PAGE 1 COUPLE LAYOUT ===== */
+.couple {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.person {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-weight: bold;
+}
+
+.avatar {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid white;
+}
+
+.heart-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .heart {
-    width: 120px;
-    height: 120px;
+    width: 100px;
+    height: 100px;
     background: #ff4d6d;
     position: relative;
     transform: rotate(-45deg);
@@ -57,15 +84,15 @@ button {
 .heart::before,
 .heart::after {
     content: "";
-    width: 120px;
-    height: 120px;
+    width: 100px;
+    height: 100px;
     background: #ff4d6d;
     border-radius: 50%;
     position: absolute;
 }
 
-.heart::before { top: -60px; }
-.heart::after { left: 60px; }
+.heart::before { top: -50px; }
+.heart::after { left: 50px; }
 
 @keyframes pulse {
     0% { transform: rotate(-45deg) scale(1); }
@@ -73,7 +100,11 @@ button {
     100% { transform: rotate(-45deg) scale(1); }
 }
 
-.days { font-size: 28px; font-weight: bold; }
+.days {
+    margin-top: 15px;
+    font-size: 20px;
+    font-weight: bold;
+}
 
 /* Floating hearts */
 .floating-heart {
@@ -87,7 +118,7 @@ button {
     to { transform: translateY(-110vh); opacity: 0; }
 }
 
-/* 3D stage */
+/* 3D photo stage */
 .stage {
     position: relative;
     width: 320px;
@@ -145,31 +176,49 @@ button {
 <source src="https://cdn.pixabay.com/audio/2022/02/23/audio_d1718ab41b.mp3">
 </audio>
 
-<!-- Page 1 -->
+<!-- PAGE 1 -->
 <div class="page active" id="page1">
-    <div class="heart"></div>
-    <div class="days" id="loveDays">Đang tính ngày yêu...</div>
-    <button onclick="nextPage()">Tiếp theo</button>
+
+<div class="couple">
+
+<div class="person">
+<img class="avatar" src="https://picsum.photos/200?girl">
+<div>Tên cô ấy</div>
 </div>
 
-<!-- Page 2 -->
+<div class="heart-center">
+<div class="heart"></div>
+<div class="days" id="loveDays"></div>
+</div>
+
+<div class="person">
+<img class="avatar" src="https://picsum.photos/200?boy">
+<div>Tên của bạn</div>
+</div>
+
+</div>
+
+<button onclick="nextPage()">Tiếp theo</button>
+</div>
+
+<!-- PAGE 2 -->
 <div class="page" id="page2">
-    <div class="stage" id="stage">
-        <img class="photo" src="https://picsum.photos/200?1">
-        <img class="photo" src="https://picsum.photos/200?2">
-        <img class="photo" src="https://picsum.photos/200?3">
-        <img class="photo" src="https://picsum.photos/200?4">
-        <img class="photo" src="https://picsum.photos/200?5">
-        <img class="photo" src="https://picsum.photos/200?6">
-        <img class="photo" src="https://picsum.photos/200?7">
-        <img class="photo" src="https://picsum.photos/200?8">
-    </div>
+<div class="stage" id="stage">
+<img class="photo" src="https://picsum.photos/200?1">
+<img class="photo" src="https://picsum.photos/200?2">
+<img class="photo" src="https://picsum.photos/200?3">
+<img class="photo" src="https://picsum.photos/200?4">
+<img class="photo" src="https://picsum.photos/200?5">
+<img class="photo" src="https://picsum.photos/200?6">
+<img class="photo" src="https://picsum.photos/200?7">
+<img class="photo" src="https://picsum.photos/200?8">
+</div>
 </div>
 
-<!-- Page 3 -->
+<!-- PAGE 3 -->
 <div class="page" id="page3">
-    <div class="message" id="typed"></div>
-    <button onclick="prevPage()">Quay lại</button>
+<div class="message" id="typed"></div>
+<button onclick="prevPage()">Quay lại</button>
 </div>
 
 <script>
@@ -199,7 +248,7 @@ const startDate = new Date("2024-01-01");
 function updateLoveDays() {
     const diff = new Date() - startDate;
     const days = Math.floor(diff / 86400000);
-    loveDays.innerText = `Đã yêu nhau ${days} ngày ❤️`;
+    loveDays.innerText = `❤️ ${days} ngày yêu ❤️`;
 }
 updateLoveDays();
 
