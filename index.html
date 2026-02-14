@@ -120,24 +120,6 @@ to{transform:translateY(-110vh);opacity:0;}
 }
 
 /* page 2 */
-.stage{
-position:relative;
-width:650px;
-height:420px;
-}
-
-.photo{
-position:absolute;
-width:110px;
-height:110px;
-object-fit:cover;
-border-radius:14px;
-background:white;
-padding:6px;
-box-shadow:0 10px 20px rgba(0,0,0,.3);
-}
-
-/* page 3 */
 .letter{
 background:white;
 color:#ff4d6d;
@@ -161,8 +143,8 @@ box-shadow:0 8px 20px rgba(0,0,0,.25);
 <div class="couple">
 
 <div class="person">
-<img class="avatar" src="images/girl.jpg">
-<div>Tên cô ấy</div>
+<img class="avatar" src="girl.jpg">
+<div>Nhi</div>
 </div>
 
 <div>
@@ -171,8 +153,8 @@ box-shadow:0 8px 20px rgba(0,0,0,.25);
 </div>
 
 <div class="person">
-<img class="avatar" src="images/boy.jpg">
-<div>Tên bạn</div>
+<img class="avatar" src="IMG_4640.JPG">
+<div>Nhe</div>
 </div>
 
 </div>
@@ -181,26 +163,8 @@ box-shadow:0 8px 20px rgba(0,0,0,.25);
 
 </div>
 
-<!-- PAGE 2 -->
+<!-- PAGE 2 (lời chúc) -->
 <div class="page" id="page2">
-
-<div class="stage">
-
-<!-- 👉 THAY ẢNH TẠI ĐÂY -->
-<img class="https://github.com/anhnttl00133-commits/NhiNhe3/blob/main/anh1.jpg">
-<img class="photo" src="https://github.com/anhnttl00133-commits/NhiNhe3/blob/main/anh2.jpg">
-<img class="photo" src="https://github.com/anhnttl00133-commits/NhiNhe3/blob/main/anh3.jpg">
-<img class="photo" src="https://github.com/anhnttl00133-commits/NhiNhe3/blob/main/anh4.jpg">
-<img class="photo" src="https://github.com/anhnttl00133-commits/NhiNhe3/blob/main/anh5.jpg">
-
-</div>
-
-<button class="nav-btn" onclick="nextPage()">Tiếp</button>
-
-</div>
-
-<!-- PAGE 3 -->
-<div class="page" id="page3">
 
 <div class="letter">
 <div id="typed"></div>
@@ -216,22 +180,21 @@ let current=1;
 function showPage(n){
 document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
 document.getElementById("page"+n).classList.add("active");
-if(n===2)spread();
-if(n===3)typeText();
+if(n===2)typeText();
 }
 
 function nextPage(){
-current=current>=3?1:current+1;
+current=current>=2?1:current+1;
 showPage(current);
 }
 
 function prevPage(){
-current=current<=1?3:current-1;
+current=current<=1?2:current-1;
 showPage(current);
 }
 
 /* love days */
-const startDate=new Date("2024-01-01");
+const startDate=new Date("2025-12-24");
 const days=Math.floor((new Date()-startDate)/86400000);
 document.getElementById("loveDays").textContent=`❤️ ${days} ngày yêu ❤️`;
 
@@ -246,21 +209,14 @@ document.body.appendChild(h);
 setTimeout(()=>h.remove(),6000);
 },600);
 
-/* spread photos */
-function spread(){
-const photos=document.querySelectorAll(".photo");
-const cols=3,gap=20;
+/* typing text */
+const msg=`Chúc Nhi một ngày Valentina thật ngọt ngào ❤️
+Chúc cho cô gái anh yêu nhất một ngày 14/02 thật ý nghĩa,
+tràn ngập niềm vui và hạnh phích =))).
+Chúc vợ mãi luôn vui vẻ, cười tươi thật nhiều.
+Anh xin lỗi vì hôm nay không thể bên em...
+Anh iu vợ rất nhìuuuuu ❤️`;
 
-photos.forEach((p,i)=>{
-const row=Math.floor(i/cols);
-const col=i%cols;
-p.style.left=col*(130)+"px";
-p.style.top=row*(130)+"px";
-});
-}
-
-/* typing */
-const msg="Chúc Nhi một ngày Valentine thật ngọt ngào ❤️";
 let typed=false;
 
 function typeText(){
@@ -273,7 +229,7 @@ const timer=setInterval(()=>{
 el.textContent+=msg[i]||"";
 i++;
 if(i>=msg.length)clearInterval(timer);
-},50);
+},40);
 }
 </script>
 
