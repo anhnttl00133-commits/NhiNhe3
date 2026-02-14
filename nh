@@ -205,13 +205,13 @@ button {
 <div class="page" id="page2">
 <div class="stage" id="stage">
 <img class="photo" src="4CD699A7-1A27-4F71-8122-3BA196B58B27.jpg">
-<img class="photo" src="https://picsum.photos/200?2">
-<img class="photo" src="https://picsum.photos/200?3">
-<img class="photo" src="https://picsum.photos/200?4">
-<img class="photo" src="https://picsum.photos/200?5">
-<img class="photo" src="https://picsum.photos/200?6">
-<img class="photo" src="https://picsum.photos/200?7">
-<img class="photo" src="https://picsum.photos/200?8">
+<img class="photo" src="IMG_3327.PNG">
+<img class="photo" src="att.JqrqCzjreBDbdjScLzTZIIz9TCpoDAZp_Zcmhw8AqnY.jpg">
+<img class="photo" src="att.csgnYStWG3e58VfNXHS8j6dQeWshDPmETes-p-0N8vQ.jpg">
+<img class="photo" src="att.mCxtBB8cjNfxKg5ZUXO_GW0Xo075jIPXbqJxR9qpTx4.jpg">
+<img class="photo" src="IMG_3835.PNG">
+<img class="photo" src="IMG_3834.PNG">
+<img class="photo" src="IMG_3833.PNG">
 </div>
 </div>
 
@@ -244,7 +244,7 @@ function prevPage() {
 setInterval(nextPage, 9000);
 
 /* Love days */
-const startDate = new Date("2024-01-01");
+const startDate = new Date("2025-12-24");
 function updateLoveDays() {
     const diff = new Date() - startDate;
     const days = Math.floor(diff / 86400000);
@@ -303,7 +303,8 @@ function flyAndHeart() {
 }
 
 /* Typing text */
-const msg="Chúc em Valentine thật ngọt ngào ❤️ Cảm ơn em đã đến và làm cuộc sống anh rực rỡ mỗi ngày.";
+const msg="Chúc Nhi một ngày Valentine thật ngọt ngào ❤️ Cảm ơn em đã đến và làm cuộc sống anh rực rỡ mỗi ngày.
+Chúc cho cô gái anh yêu";
 let typed=false;
 function typeText(){
     if(typed) return;
