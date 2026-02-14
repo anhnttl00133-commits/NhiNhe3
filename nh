@@ -303,8 +303,7 @@ function flyAndHeart() {
 }
 
 /* Typing text */
-const msg="Chúc Nhi một ngày Valentine thật ngọt ngào ❤️ Cảm ơn em đã đến và làm cuộc sống anh rực rỡ mỗi ngày.
-Chúc cho cô gái anh yêu";
+const msg="Chúc Nhi một ngày Valentina thật ngọt ngào ❤️ Chúc cho cô gái anh yêu nhất một ngày 14/02 thật ý nghĩa, tràn ngập niềm vui và hạnh phích =))). Chúc vợ mãi luôn vui vẻ, cười tươi thật nhiều. Và Nhe cũn xin nhũi em vì hôm nay Nhe hoog thể bên em phải để em thiệt thòi. Nhưng mà anh thương baby nhắm baby đừng giần anh nhá.... \" anh iu vợ rất nhìuuuuu ❤️ \"";
 let typed=false;
 function typeText(){
     if(typed) return;
