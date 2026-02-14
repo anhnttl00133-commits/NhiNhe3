@@ -4,172 +4,151 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Valentine Love</title>
+
 <style>
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    text-align: center;
-    color: white;
+body{
+margin:0;
+font-family:Arial;
+background:linear-gradient(135deg,#ff9a9e,#fad0c4);
+overflow:hidden;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+color:white;
+text-align:center;
 }
 
-.page {
-    display: none;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    padding: 20px;
-    animation: fade 0.8s ease;
+.page{
+display:none;
+flex-direction:column;
+align-items:center;
+gap:20px;
+padding:20px;
+animation:fade .6s ease;
 }
 
-.active { display: flex; }
+.active{display:flex;}
 
-@keyframes fade {
-    from { opacity: 0; transform: scale(0.95); }
-    to { opacity: 1; transform: scale(1); }
+@keyframes fade{
+from{opacity:0;transform:scale(.95);}
+to{opacity:1;transform:scale(1);}
 }
 
-button {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 20px;
-    background: white;
-    color: #ff4d6d;
-    font-size: 16px;
-    cursor: pointer;
+/* button */
+.nav-btn{
+position:fixed;
+right:20px;
+bottom:20px;
+width:90px;
+height:90px;
+border:none;
+border-radius:50%;
+background:linear-gradient(45deg,#ff4d6d,#ff8fab);
+color:white;
+cursor:pointer;
+font-weight:bold;
+box-shadow:0 8px 20px rgba(0,0,0,.35);
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
 }
 
-/* ===== PAGE 1 COUPLE LAYOUT ===== */
-.couple {
-    display: flex;
-    align-items: center;
-    gap: 25px;
+.nav-btn::before{
+content:"❤";
+font-size:28px;
 }
 
-.person {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-weight: bold;
+/* page 1 */
+.couple{display:flex;gap:25px;align-items:center;}
+
+.person{
+display:flex;
+flex-direction:column;
+align-items:center;
+font-weight:bold;
 }
 
-.avatar {
-    width: 90px;
-    height: 90px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 4px solid white;
+.avatar{
+width:90px;
+height:90px;
+border-radius:50%;
+object-fit:cover;
+border:4px solid white;
 }
 
-.heart-center {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.heart {
-    width: 100px;
-    height: 100px;
-    background: #ff4d6d;
-    position: relative;
-    transform: rotate(-45deg);
-    animation: pulse 1.2s infinite;
+.heart{
+width:110px;
+height:110px;
+background:#ff4d6d;
+position:relative;
+transform:rotate(-45deg);
+animation:pulse 1.3s infinite;
 }
 
 .heart::before,
-.heart::after {
-    content: "";
-    width: 100px;
-    height: 100px;
-    background: #ff4d6d;
-    border-radius: 50%;
-    position: absolute;
+.heart::after{
+content:"";
+position:absolute;
+width:110px;
+height:110px;
+background:#ff4d6d;
+border-radius:50%;
 }
 
-.heart::before { top: -50px; }
-.heart::after { left: 50px; }
+.heart::before{top:-55px;}
+.heart::after{left:55px;}
 
-@keyframes pulse {
-    0% { transform: rotate(-45deg) scale(1); }
-    50% { transform: rotate(-45deg) scale(1.15); }
-    100% { transform: rotate(-45deg) scale(1); }
+@keyframes pulse{
+0%{transform:rotate(-45deg) scale(1);}
+50%{transform:rotate(-45deg) scale(1.15);}
+100%{transform:rotate(-45deg) scale(1);}
 }
 
-.days {
-    margin-top: 15px;
-    font-size: 20px;
-    font-weight: bold;
+.days{font-weight:bold;margin-top:10px;}
+
+/* floating hearts */
+.floating-heart{
+position:absolute;
+bottom:-20px;
+animation:floatUp linear forwards;
 }
 
-/* Floating hearts */
-.floating-heart {
-    position: absolute;
-    bottom: -20px;
-    font-size: 20px;
-    animation: floatUp linear forwards;
+@keyframes floatUp{
+to{transform:translateY(-110vh);opacity:0;}
 }
 
-@keyframes floatUp {
-    to { transform: translateY(-110vh); opacity: 0; }
+/* page 2 */
+.stage{
+position:relative;
+width:650px;
+height:420px;
 }
 
-/* 3D photo stage */
-.stage {
-    position: relative;
-    width: 320px;
-    height: 300px;
-    transform-style: preserve-3d;
-    animation: spin3d 8s linear infinite;
+.photo{
+position:absolute;
+width:110px;
+height:110px;
+object-fit:cover;
+border-radius:14px;
+background:white;
+padding:6px;
+box-shadow:0 10px 20px rgba(0,0,0,.3);
 }
 
-@keyframes spin3d {
-    from { transform: rotateY(0deg); }
-    to { transform: rotateY(360deg); }
-}
-
-.photo {
-    position: absolute;
-    width: 70px;
-    height: 70px;
-    object-fit: cover;
-    border-radius: 12px;
-    transition: all 2s cubic-bezier(.2,.8,.2,1);
-}
-
-.bounce { animation: bounce 0.6s ease; }
-
-@keyframes bounce {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.25); }
-    100% { transform: scale(1); }
-}
-
-/* Fireworks */
-.spark {
-    position: absolute;
-    font-size: 18px;
-    animation: explode 1s forwards;
-}
-
-@keyframes explode {
-    to {
-        transform: translate(var(--x), var(--y));
-        opacity: 0;
-    }
-}
-
-.message {
-    font-size: 22px;
-    max-width: 400px;
-    line-height: 1.5;
+/* page 3 */
+.letter{
+background:white;
+color:#ff4d6d;
+padding:15px;
+border-radius:16px;
+width:260px;
+box-shadow:0 8px 20px rgba(0,0,0,.25);
 }
 </style>
 </head>
+
 <body>
 
 <audio autoplay loop>
@@ -182,139 +161,119 @@ button {
 <div class="couple">
 
 <div class="person">
-<img class="avatar" src="5C203EE1-8349-4214-AAD5-24DDA4E19C0B.jpg">
-<div>Nhi</div>
+<img class="avatar" src="images/girl.jpg">
+<div>Tên cô ấy</div>
 </div>
 
-<div class="heart-center">
+<div>
 <div class="heart"></div>
 <div class="days" id="loveDays"></div>
 </div>
 
 <div class="person">
-<img class="avatar" src="5C203EE1-8349-4214-AAD5-24DDA4E19C0B.jpg">
-<div>Nhe</div>
+<img class="avatar" src="images/boy.jpg">
+<div>Tên bạn</div>
 </div>
 
 </div>
 
-<button onclick="nextPage()">Tiếp theo</button>
+<button class="nav-btn" onclick="nextPage()">Tiếp</button>
+
 </div>
 
 <!-- PAGE 2 -->
 <div class="page" id="page2">
-<div class="stage" id="stage">
-<img class="photo" src="4CD699A7-1A27-4F71-8122-3BA196B58B27.jpg">
-<img class="photo" src="IMG_3327.PNG">
-<img class="photo" src="att.JqrqCzjreBDbdjScLzTZIIz9TCpoDAZp_Zcmhw8AqnY.jpg">
-<img class="photo" src="att.csgnYStWG3e58VfNXHS8j6dQeWshDPmETes-p-0N8vQ.jpg">
-<img class="photo" src="att.mCxtBB8cjNfxKg5ZUXO_GW0Xo075jIPXbqJxR9qpTx4.jpg">
-<img class="photo" src="IMG_3835.PNG">
-<img class="photo" src="IMG_3834.PNG">
-<img class="photo" src="IMG_3833.PNG">
+
+<div class="stage">
+
+<!-- 👉 THAY ẢNH TẠI ĐÂY -->
+<img class="photo" src="images/anh1.jpg">
+<img class="photo" src="images/anh2.jpg">
+<img class="photo" src="images/anh3.jpg">
+<img class="photo" src="images/anh4.jpg">
+<img class="photo" src="images/anh5.jpg">
+
 </div>
+
+<button class="nav-btn" onclick="nextPage()">Tiếp</button>
+
 </div>
 
 <!-- PAGE 3 -->
 <div class="page" id="page3">
-<div class="message" id="typed"></div>
-<button onclick="prevPage()">Quay lại</button>
+
+<div class="letter">
+<div id="typed"></div>
+</div>
+
+<button class="nav-btn" onclick="prevPage()">Lại</button>
+
 </div>
 
 <script>
-let current = 1;
+let current=1;
 
-function showPage(n) {
-    document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
-    document.getElementById("page" + n).classList.add("active");
-    if (n === 2) flyAndHeart();
-    if (n === 3) typeText();
+function showPage(n){
+document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
+document.getElementById("page"+n).classList.add("active");
+if(n===2)spread();
+if(n===3)typeText();
 }
 
-function nextPage() {
-    current = current >= 3 ? 1 : current + 1;
-    showPage(current);
+function nextPage(){
+current=current>=3?1:current+1;
+showPage(current);
 }
 
-function prevPage() {
-    current = current <= 1 ? 3 : current - 1;
-    showPage(current);
+function prevPage(){
+current=current<=1?3:current-1;
+showPage(current);
 }
 
-setInterval(nextPage, 9000);
+/* love days */
+const startDate=new Date("2024-01-01");
+const days=Math.floor((new Date()-startDate)/86400000);
+document.getElementById("loveDays").textContent=`❤️ ${days} ngày yêu ❤️`;
 
-/* Love days */
-const startDate = new Date("2025-12-24");
-function updateLoveDays() {
-    const diff = new Date() - startDate;
-    const days = Math.floor(diff / 86400000);
-    loveDays.innerText = `❤️ ${days} ngày yêu ❤️`;
-}
-updateLoveDays();
+/* floating hearts */
+setInterval(()=>{
+const h=document.createElement("div");
+h.className="floating-heart";
+h.textContent="❤";
+h.style.left=Math.random()*100+"vw";
+h.style.animationDuration=(3+Math.random()*3)+"s";
+document.body.appendChild(h);
+setTimeout(()=>h.remove(),6000);
+},600);
 
-/* Floating hearts */
-function createHeart() {
-    const h = document.createElement("div");
-    h.className = "floating-heart";
-    h.innerHTML = "❤";
-    h.style.left = Math.random()*100+"vw";
-    h.style.animationDuration = (3+Math.random()*3)+"s";
-    document.body.appendChild(h);
-    setTimeout(()=>h.remove(),6000);
-}
-setInterval(createHeart,500);
+/* spread photos */
+function spread(){
+const photos=document.querySelectorAll(".photo");
+const cols=3,gap=20;
 
-/* Fireworks */
-function fireworks(x,y){
-    for(let i=0;i<20;i++){
-        const s=document.createElement("div");
-        s.className="spark";
-        s.innerHTML="✨";
-        s.style.left=x+"px";
-        s.style.top=y+"px";
-        s.style.setProperty("--x",(Math.random()*200-100)+"px");
-        s.style.setProperty("--y",(Math.random()*200-100)+"px");
-        document.body.appendChild(s);
-        setTimeout(()=>s.remove(),1000);
-    }
+photos.forEach((p,i)=>{
+const row=Math.floor(i/cols);
+const col=i%cols;
+p.style.left=col*(130)+"px";
+p.style.top=row*(130)+"px";
+});
 }
 
-/* Fly → heart */
-function flyAndHeart() {
-    const photos = document.querySelectorAll(".photo");
-
-    photos.forEach(p => {
-        p.style.left = "-100px";
-        p.style.top = "-100px";
-    });
-
-    setTimeout(()=>{
-        photos.forEach((p,i)=>{
-            const t=i/photos.length*Math.PI*2;
-            const x=160+90*Math.sin(t)**3;
-            const y=140-(70*Math.cos(t)-30*Math.cos(2*t)-10*Math.cos(3*t)-5*Math.cos(4*t));
-            p.style.left=x+"px";
-            p.style.top=y+"px";
-            p.classList.add("bounce");
-            fireworks(x,y);
-            setTimeout(()=>p.classList.remove("bounce"),600);
-        });
-    },600);
-}
-
-/* Typing text */
-const msg="Chúc Nhi một ngày Valentina thật ngọt ngào ❤️ Chúc cho cô gái anh yêu nhất một ngày 14/02 thật ý nghĩa, tràn ngập niềm vui và hạnh phích =))). Chúc vợ mãi luôn vui vẻ, cười tươi thật nhiều. Và Nhe cũn xin nhũi em vì hôm nay Nhe hoog thể bên em phải để em thiệt thòi. Nhưng mà anh thương baby nhắm baby đừng giần anh nhá.... \" anh iu vợ rất nhìuuuuu ❤️ \"";
+/* typing */
+const msg="Chúc Nhi một ngày Valentine thật ngọt ngào ❤️";
 let typed=false;
+
 function typeText(){
-    if(typed) return;
-    typed=true;
-    let i=0;
-    const el=document.getElementById("typed");
-    const timer=setInterval(()=>{
-        el.innerHTML+=msg[i];
-        i++;
-        if(i>=msg.length) clearInterval(timer);
-    },50);
+if(typed)return;
+typed=true;
+const el=document.getElementById("typed");
+let i=0;
+
+const timer=setInterval(()=>{
+el.textContent+=msg[i]||"";
+i++;
+if(i>=msg.length)clearInterval(timer);
+},50);
 }
 </script>
 
